@@ -1,0 +1,12 @@
+    #cuerpo {
+        background-color: rgb(98, 89, 84);
+    }
+    
+    #cardbase {
+        background-color: rgb(164, 31, 32);
+    }
+    
+    #cardbase #btnAccion {
+        color: black;
+        font-family: "arial black";
+    }

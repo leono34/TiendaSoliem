@@ -518,8 +518,8 @@ mark {
 
 .img-thumbnail {
     padding: .25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+    border: 1px solid #a41f20;
     border-radius: .25rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
     max-width: 100%;
@@ -3020,8 +3020,8 @@ fieldset:disabled a.btn {
 .btn-success.disabled,
 .btn-success:disabled {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
+    background-color: #1e7e34;
+    border-color: #1e7e34
 }
 
 .btn-success:not(:disabled):not(.disabled).active,
@@ -3321,14 +3321,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-    color: #28a745;
-    border-color: #28a745
+    color: green;
+    border-color: green
 }
 
 .btn-outline-success:hover {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
+    background-color: green;
+    border-color: green
 }
 
 .btn-outline-success.focus,

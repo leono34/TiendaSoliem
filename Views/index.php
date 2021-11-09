@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="<?php echo base_url; ?>Assets/css/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url; ?>Assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?php echo base_url; ?>Assets/css/estilobase.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" id="cuerpo">
     <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-primary" id="cardbase">
             <div class="card-header text-center">
                 <a href="#" class="h1"><b>SOLIEM PERU SAC</a>
                 <img class="img-thumbnail" src="<?php echo base_url; ?>Assets/img/logo.png" width="150">
