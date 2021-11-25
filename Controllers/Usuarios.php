@@ -47,6 +47,7 @@ class Usuarios extends Controller{
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
     }
+ //----------------------------------------------------------------------------------------------------------------------   
     public function validar()
     {
         if (empty(strClean($_POST['usuario'])) || empty(strClean($_POST['clave']))) {
@@ -56,7 +57,7 @@ class Usuarios extends Controller{
             $clave = strClean($_POST['clave']);
             $data = $this->model->getUsuario($usuario);
             if ($data != null) {
-                if (password_verify($clave, $data['clave'])) {
+                if ($clave == $data['clave']) {
                     $_SESSION['id_usuario'] = $data['id'];
                     $_SESSION['usuario'] = $data['usuario'];
                     $_SESSION['nombre'] = $data['nombre'];
@@ -80,7 +81,6 @@ class Usuarios extends Controller{
         $clave = strClean($_POST['clave']);
         $confirmar = strClean($_POST['confirmar']);
         $id = strClean($_POST['id']);
-        $hash = password_hash($clave, PASSWORD_DEFAULT);
         if (empty($usuario) || empty($nombre) || empty($correo)) {
             $msg = array('msg' => 'Todo los campos son obligatorios', 'icono' => 'error');
         }else{
@@ -91,7 +91,7 @@ class Usuarios extends Controller{
                     if ($clave != $confirmar) {
                         $msg = array('msg' => 'Las contraseña no coinciden', 'icono' => 'warning');
                     }else{
-                        $data = $this->model->registrarUsuario($usuario, $nombre,$correo, $hash);
+                        $data = $this->model->registrarUsuario($usuario, $nombre,$correo, $clave);
                         if ($data == "ok") {
                             $msg = array('msg' => 'Usuario registrado con éxito', 'icono' => 'success');
                         } else if ($data == "existe") {
@@ -193,7 +193,7 @@ class Usuarios extends Controller{
                 $id = $_SESSION['id_usuario'];
                 $data = $this->model->getPerfil($id);
                 if (password_verify($actual, $data['clave'])) {
-                    $data = $this->model->ActualizarPass(password_hash($nueva, PASSWORD_DEFAULT), $id);
+                    $data = $this->model->ActualizarPass($nueva, $id);
                     if ($data == 'ok') {
                         $msg = array('msg' => 'Contraseña modificada con exito', 'icono' => 'success');
                     }
